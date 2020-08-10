@@ -1,0 +1,58 @@
+{
+    "name": "msztorc/php-appdynamics",
+    "description": "AppDynamics Agent API",
+    "keywords": [
+        "appdynamics",
+        "apm",
+        "php-agent",
+        "laravel",
+        "msztorc"
+    ],
+    "homepage": "https://github.com/msztorc/php-appdynamics",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Miroslaw Sztorc",
+            "email": "miroslaw@sztorc.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "msztorc\\Appdynamics\\": "src"
+        },
+        "files": ["appd/appdynamics_api_header.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "msztorc\\Appdynamics\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "msztorc\\Appdynamics\\AppdynamicsServiceProvider"
+            ],
+            "aliases": {
+                "Appdynamics": "msztorc\\Appdynamics\\AppdynamicsFacade"
+            }
+        }
+    }
+}
